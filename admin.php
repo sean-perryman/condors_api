@@ -45,6 +45,7 @@
 		$t_ext = end((explode(".", $name)));
 
 		$target_file = $target_dir . basename($city . "-" . $name . "." . $t_ext);
+		echo $target_file;
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	
