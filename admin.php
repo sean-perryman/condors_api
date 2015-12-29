@@ -42,7 +42,7 @@
 
 		//Grab file extension of uploaded file
 		$t_name = $_FILES["teamLogoFile"]["name"];
-		$t_ext = end((explode(".", $name)));
+		$t_ext = end((explode(".", $t_name)));
 
 		$target_file = $target_dir . basename($city . "-" . $name . "." . $t_ext);
 		echo $target_file;
