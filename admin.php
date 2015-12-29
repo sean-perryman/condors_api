@@ -87,11 +87,13 @@
 		    <p>All scores, schedules, and news are entered manually.</p>
 
 		    <?php 
-			   	$header_result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
-			  	
-			  	while($row = mysql_fetch_assoc($header_result)) {
-			  		echo "<img class='team_logos' src='." . $row['logo'] . "'' />";
-			  	}
+		    	$logo_query = "SELECT * FROM Teams ORDER BY name ASC";
+			   	if ($header_result = mysqli_query( $link, $logo_query )) {
+				  	
+				  	while($row = mysqli_fetch_assoc($header_result)) {
+				  		echo "<img class='team_logos' src='." . $row['logo'] . "'' />";
+				  	}
+				  }
 		    ?>
 		  </section>
 
