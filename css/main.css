@@ -3,13 +3,18 @@ section {
 }
 
 #wrapper {
- width:500px;
- height:500px;
- margin:0 auto;
- background:#f7f7f7;
- position:absolute;
- left:50%;
- top:50%;
- margin-left:-250px;
- margin-top:-250px;
+	width:500px;
+	height:500px;
+	margin:0 auto;
+	background:#f7f7f7;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-250px;
+	margin-top:-250px;
+}
+
+.team_logos {
+	width: 256px;
+	height: auto;
 }

@@ -74,7 +74,6 @@
     		}	else {
     			echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Failure.</p></div>";
     		}
-    		echo "<div class=\"alert alert-Success\" role=\"alert\"><p>Your logo was uploaded.</p></div>";
     	} else {
         echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, your logo could not be uploaded.</p></div>";
     	}
@@ -86,8 +85,16 @@
 
 		    <p>This is a project to bring a mobile app for the AHL Bakersfield Condors to fruition.</p>
 		    <p>All scores, schedules, and news are entered manually.</p>
+
+		    <?php 
+			   	$header_result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
+			  	
+			  	while($row = mysql_fetch_assoc($header_result)) {
+			  		echo "<img class='team_logos' src='." . $row['logo'] . "'' />";
+			  	}
+		    ?>
 		  </section>
-		  
+
 	    <section id="team">
 		    <!-- Teams Form -->
 			  <div class="row">
