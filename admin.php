@@ -54,7 +54,7 @@
 			 $imageFileType != "jpeg" &&
 			 $imageFileType != "gif" ) 
 		{
-	    echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p></div>";
+	    echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, only JPG, JPEG, PNG & GIF files are allowed. You uploaded a ". $imageFileType . "</p></div>";
 	    $uploadOk = 0;
 		} 
 
