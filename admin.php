@@ -36,7 +36,7 @@
 		$img_temp = basename($_FILES["teamLogoFile"]["name"]);
 		
 		$uploadOk = 1;
-		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+		$imageFileType = pathinfo($img_temp,PATHINFO_EXTENSION);
 		
 
 		// Check if image file is a actual image or fake image
