@@ -28,12 +28,12 @@
 
 	if (isset($_POST['teamCity']) &&
 			isset($_POST['teamName']) &&
-			isset($_POST['teamLogo'])) 
+			isset($_POST['teamLogoFile'])) 
 	{
 		$city = mysqli_real_escape_string($link, $_POST['teamCity']);
 		$name = mysqli_real_escape_string($link, $_POST['teamName']);
 
-		$img_temp = basename($_FILES["teamLogo"]["name"]);
+		$img_temp = basename($_FILES["teamLogoFile"]["name"]);
 		
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -41,7 +41,7 @@
 
 		// Check if image file is a actual image or fake image
 		if(isset($_POST["submit"])) {
-		    $check = getimagesize($_FILES["teamLogo"]["tmp_name"]);
+		    $check = getimagesize($_FILES["teamLogoFile"]["tmp_name"]);
 		    if($check !== false) {
 		        $uploadOk = 1;
 		    } else {
