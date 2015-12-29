@@ -37,17 +37,14 @@
 		//Handle and bad stuff (hopefully, haha)
 		$city = mysqli_real_escape_string($link, $_POST['teamCity']);
 		$name = mysqli_real_escape_string($link, $_POST['teamName']);
-		
-		$target_dir = "teamLogos/";
 
 		//Grab file extension of uploaded file
 		$t_name = $_FILES["teamLogoFile"]["name"];
 		$t_ext = end((explode(".", $t_name)));
 
+		$target_dir = "teamLogos/";
 		$target_file = $target_dir . basename($city . "-" . $name . "." . $t_ext);
-		echo $target_file;
 		$uploadOk = 1;
-		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	
 		if(isset($_POST["submit"])) {
 		    $check = getimagesize($_FILES["teamLogoFile"]["tmp_name"]);
@@ -58,12 +55,12 @@
 		    }
 		}
 
-		if($imageFileType != "jpg" &&
-			 $imageFileType != "png" &&
-			 $imageFileType != "jpeg" &&
-			 $imageFileType != "gif" ) 
+		if($t_ext != "jpg" &&
+			 $t_ext != "png" &&
+			 $t_ext != "jpeg" &&
+			 $t_ext != "gif" ) 
 		{
-	    echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, only JPG, JPEG, PNG & GIF files are allowed. You uploaded a ". $imageFileType . "</p></div>";
+	    echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, only JPG, JPEG, PNG & GIF files are allowed. You uploaded a ". $t_ext . "</p></div>";
 	    $uploadOk = 0;
 		} 
 
@@ -84,31 +81,31 @@
 		}
 	}
 ?>
-			<div class="wrapper">
+		  <section id="header">  
 		    <h1>Condors API Test!</h1>
 
 		    <p>This is a project to bring a mobile app for the AHL Bakersfield Condors to fruition.</p>
 		    <p>All scores, schedules, and news are entered manually.</p>
-
-		    <section id="team">
-			    <!-- Teams Form -->
-				  <div class="row">
-				    <form method="post" enctype="multipart/form-data">
-						  <div class="form-group">
-						    <label for="teamCity">Team City</label>
-						    <input type="text" class="form-control" name="teamCity" id="teamCity" placeholder="E.g. Bakersfield">
-						  </div>
-						  <div class="form-group">
-						    <label for="teamName">Team Name</label>
-						    <input type="text" class="form-control" name="teamName" id="teamName" placeholder="E.g. Condors">
-						  </div>
-						  <div class="form-group">
-						    <label for="teamLogoFile">Team Logo</label>
-						    <input type="file" name="teamLogoFile" id="teamLogoFile">
-						  </div>
-						  <button type="submit" class="btn btn-default">Submit</button>
-						</form>
-					</div>
+		  </section>
+		  
+	    <section id="team">
+		    <!-- Teams Form -->
+			  <div class="row">
+			    <form method="post" enctype="multipart/form-data">
+					  <div class="form-group">
+					    <label for="teamCity">Team City</label>
+					    <input type="text" class="form-control" name="teamCity" id="teamCity" placeholder="E.g. Bakersfield">
+					  </div>
+					  <div class="form-group">
+					    <label for="teamName">Team Name</label>
+					    <input type="text" class="form-control" name="teamName" id="teamName" placeholder="E.g. Condors">
+					  </div>
+					  <div class="form-group">
+					    <label for="teamLogoFile">Team Logo</label>
+					    <input type="file" name="teamLogoFile" id="teamLogoFile">
+					  </div>
+					  <button type="submit" class="btn btn-default">Submit</button>
+					</form>
 				</div>
 			</section>
 
@@ -121,11 +118,11 @@
 					    <select class="form-control" id="homeTeam">
 					    	<option>Click to select home team</option>
 							  <?php
-							  	/*$ht_result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
+							  	$ht_result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
 							  	$ht_rows = mysqli_fetch_array($ht_result, MYSQLI_NUM);
 							  	foreach ($ht_rows as $ht_row) {
 							  		echo "<option>". $ht_row[0] . "</option>";
-							  	}*/
+							  	}
 							  ?>
 					  	</select>
 					  </div>
@@ -134,11 +131,11 @@
 					    <select class="form-control" id="awayTeam">
 					    	<option>Click to select away team</option>
 							  <?php
-							  	/*$at_result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
+							  	$at_result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
 							  	$at_rows = mysqli_fetch_array($at_result, MYSQLI_NUM);
 							  	foreach ($at_rows as $at_row) {
 							  		echo "<option>". $at_row[0] . "</option>";
-							  	}*/
+							  	}
 							  ?>
 					  	</select>
 					  </div>
