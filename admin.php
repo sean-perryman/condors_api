@@ -54,20 +54,20 @@
 			 $imageFileType != "jpeg" &&
 			 $imageFileType != "gif" ) 
 		{
-	    echo "<p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
+	    echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p></div>";
 	    $uploadOk = 0;
 		} 
 
-		if ($uploadOk == 0) echo "<p>Sorry, your team logo was not uploaded. Please try again.</p>";
+		if ($uploadOk == 0) echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, your team logo was not uploaded. Please try again.</p></div>";
 		else {
 			$target_file = "teamLogos/" . basename(trim($city) . "-" . trim($name) . "." . $imageFileType);
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       	//File uploaded
     		$insert_query = "INSERT INTO Teams (`city`, `name`, `logo`) VALUES (" . $city . "," . $name . "," . $target_file .")";
     		if (!mysqli_query($insert_query, $link)) echo "Failed to write to database.";
-    		else echo "Success.";
+    		else echo "<div class=\"alert alert-success\" role=\"alert\"><p>Success.</p></div>";
     	} else {
-        //File not uploaded
+        echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, your file could not be uploaded.</p></div>";
     	}
 		}
 	}
