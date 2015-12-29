@@ -63,17 +63,19 @@
 			//$target_file = "teamLogos/" . basename(trim($city) . "-" . trim($name) . "." . $imageFileType);
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       	//File uploaded
-    		$insert_query = "INSERT INTO Teams (city, name, logo) VALUES ('" . $city . "','" . $name . "','" . $target_file ."')";
+    		/*$insert_query = "INSERT INTO Teams (city, name, logo) VALUES ('" . $city . "','" . $name . "','" . $target_file ."')";
     		if (mysqli_query($link, $insert_query)) {
     			echo "<div class=\"alert alert-success\" role=\"alert\"><p>Success.</p></div>";
     		}	else {
     			echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Failure.</p></div>";
-    		}
+    		}*/
+    		echo "<div class=\"alert alert-Success\" role=\"alert\"><p>Your logo was uploaded.</p></div>";
     	} else {
-        echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, your file could not be uploaded.</p></div>";
+        echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, your logo could not be uploaded.</p></div>";
     	}
 		}
 	}
+	echo "End php.";
 ?>
 			<div class="wrapper">
 		    <h1>Condors API Test!</h1>
