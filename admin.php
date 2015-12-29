@@ -64,8 +64,11 @@
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       	//File uploaded
     		$insert_query = "INSERT INTO Teams (city, name, logo) VALUES ('" . $city . "','" . $name . "','" . $target_file ."')";
-    		if (!mysqli_query($link, $insert_query)) echo "Failed to write to database.";
-    		else echo "<div class=\"alert alert-success\" role=\"alert\"><p>Success.</p></div>";
+    		if (mysqli_query($link, $insert_query)) {
+    			echo "<div class=\"alert alert-success\" role=\"alert\"><p>Success.</p></div>";
+    		}	else {
+    			echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Failure.</p></div>";
+    		}
     	} else {
         echo "<div class=\"alert alert-danger\" role=\"alert\"><p>Sorry, your file could not be uploaded.</p></div>";
     	}
