@@ -28,11 +28,11 @@
 
 	if (isset($_POST['teamCity']) &&
 			isset($_POST['teamName']) &&
-			isset($_POST['teamLogoFile'])) 
+			isset($_FILES['teamLogoFile'])) 
 	{
 		$city = mysqli_real_escape_string($link, $_POST['teamCity']);
 		$name = mysqli_real_escape_string($link, $_POST['teamName']);
-
+		
 		$target_dir = "teamLogos/";
 		$target_file = $target_dir . basename($_FILES["teamLogoFile"]["name"]);
 		$uploadOk = 1;
