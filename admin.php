@@ -44,7 +44,7 @@
 		$t_name = $_FILES["teamLogoFile"]["name"];
 		$t_ext = end((explode(".", $name)));
 
-		$target_file = $target_dir . basename($city . "-" . $name . "." . $t_ext)
+		$target_file = $target_dir . basename($city . "-" . $name . "." . $t_ext);
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	
@@ -82,7 +82,6 @@
     	}
 		}
 	}
-	echo "End php.";
 ?>
 			<div class="wrapper">
 		    <h1>Condors API Test!</h1>
