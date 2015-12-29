@@ -91,7 +91,7 @@
 			   	if ($header_result = mysqli_query( $link, $logo_query )) {
 				  	
 				  	while($row = mysqli_fetch_assoc($header_result)) {
-				  		echo "<img class='team_logos' src='." . $row['logo'] . "'' />";
+				  		echo "<img class='team_logos' src='" . $row['logo'] . "'' />";
 				  	}
 				  }
 		    ?>
