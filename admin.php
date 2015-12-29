@@ -109,11 +109,11 @@
 					    <select class="form-control" id="homeTeam">
 					    	<option>Click to select home team</option>
 							  <?php
-							  	$ht_result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
+							  	/*$ht_result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
 							  	$ht_rows = mysqli_fetch_array($ht_result, MYSQLI_NUM);
 							  	foreach ($ht_rows as $ht_row) {
 							  		echo "<option>". $ht_row[0] . "</option>";
-							  	}
+							  	}*/
 							  ?>
 					  	</select>
 					  </div>
@@ -122,11 +122,11 @@
 					    <select class="form-control" id="awayTeam">
 					    	<option>Click to select away team</option>
 							  <?php
-							  	$at_result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
+							  	/*$at_result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
 							  	$at_rows = mysqli_fetch_array($at_result, MYSQLI_NUM);
 							  	foreach ($at_rows as $at_row) {
 							  		echo "<option>". $at_row[0] . "</option>";
-							  	}
+							  	}*/
 							  ?>
 					  	</select>
 					  </div>
