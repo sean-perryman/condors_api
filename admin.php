@@ -80,7 +80,7 @@
 	    <section id="team">
 		    <!-- Teams Form -->
 			  <div class="row">
-			    <form>
+			    <form method="post">
 					  <div class="form-group">
 					    <label for="teamCity">Team City</label>
 					    <input type="text" class="form-control" name="teamCity" id="teamCity" placeholder="E.g. Bakersfield">
@@ -101,7 +101,7 @@
 			<section id="schedule">
 				<!-- Schedule Form-->
 				<div class="row">
-					<form>
+					<form method="post">
 						<div class="form-group">
 					    <label for="homeTeam">Home Team</label>
 					    <select class="form-control" id="homeTeam">
