@@ -14,7 +14,7 @@ CREATE TABLE Schedule (
 	home INT, --FK to the Teams table
 	away INT, --FK to the Teams table
 	game_date DATE NOT NULL,
-	time TIME NOT NULL,
+	game_time TIME NOT NULL,
 	home_score INT NOT NULL,
 	away_score INT NOT NULL,
 	PRIMARY KEY(id),
@@ -25,7 +25,7 @@ CREATE TABLE Schedule (
 CREATE TABLE News (
 	id INT NOT NULL AUTO_INCREMENT,
 	article_date DATE NOT NULL,
-	time TIME NOT NULL,
+	game_time TIME NOT NULL,
 	title VARCHAR(64) NOT NULL,
 	description VARCHAR(255) NOT NULL,
 	image VARCHAR(255),
