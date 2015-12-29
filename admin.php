@@ -1,52 +1,3 @@
-<?php
-	require_once('dblink.php');
-
-	if (isset($_POST['teamCity']) &&
-			isset($_POST['teamName']) &&
-			isset($_POST['teamLogo'])) 
-	{
-		//All values for new team exist, write to database.
-		$city = mysqli_real_escape_string($link, $_POST['teamCity']);
-		$name = mysqli_real_escape_string($link, $_POST['teamName']);
-
-		$img_temp = basename($_FILES["teamLogo"]["name"]);
-		
-		
-		$uploadOk = 1;
-		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-		
-
-		// Check if image file is a actual image or fake image
-		if(isset($_POST["submit"])) {
-		    $check = getimagesize($_FILES["teamLogo"]["tmp_name"]);
-		    if($check !== false) {
-		        $uploadOk = 1;
-		    } else {
-		        $uploadOk = 0;
-		    }
-		}
-
-		if($imageFileType != "jpg" &&
-			 $imageFileType != "png" &&
-			 $imageFileType != "jpeg" &&
-			 $imageFileType != "gif" ) 
-		{
-	    echo "<p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
-	    $uploadOk = 0;
-		} 
-
-		if ($uploadOk == 0) echo "Sorry, your team logo was not uploaded. Please try again.";
-		else {
-			if ($uploadOk = 1) $target_file = "teamLogos/" . basename(trim($city) . "-" . trim($name) . "." . $imageFileType;
-			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        basename( $_FILES["fileToUpload"]["name"]);
-    	} else {
-        echo "<p>Sorry, there was an error uploading your file.</p>";
-    	}
-		}
-	}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,6 +22,57 @@
   </head>
   <body>
   	<div class="container">
+
+<?php
+	require_once('dblink.php');
+
+	if (isset($_POST['teamCity']) &&
+			isset($_POST['teamName']) &&
+			isset($_POST['teamLogo'])) 
+	{
+		$city = mysqli_real_escape_string($link, $_POST['teamCity']);
+		$name = mysqli_real_escape_string($link, $_POST['teamName']);
+
+		$img_temp = basename($_FILES["teamLogo"]["name"]);
+		
+		$uploadOk = 1;
+		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+		
+
+		// Check if image file is a actual image or fake image
+		if(isset($_POST["submit"])) {
+		    $check = getimagesize($_FILES["teamLogo"]["tmp_name"]);
+		    if($check !== false) {
+		        $uploadOk = 1;
+		    } else {
+		        $uploadOk = 0;
+		    }
+		}
+
+		if($imageFileType != "jpg" &&
+			 $imageFileType != "png" &&
+			 $imageFileType != "jpeg" &&
+			 $imageFileType != "gif" ) 
+		{
+	    echo "<p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
+	    $uploadOk = 0;
+		} 
+
+		if ($uploadOk == 0) echo "<p>Sorry, your team logo was not uploaded. Please try again.</p>";
+		else {
+			$target_file = "teamLogos/" . basename(trim($city) . "-" . trim($name) . "." . $imageFileType);
+			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+      	//File uploaded
+    		$insert_query = "INSERT INTO Teams (`city`, `name`, `logo`) VALUES (" . $city . "," . $name . "," . $target_file .")";
+    		if (!mysqli_query($insert_query, $link)) echo "Failed to write to database.";
+    		else echo "Success.";
+    	} else {
+        //File not uploaded
+    	}
+		}
+	}
+?>
+
 	    <h1>Condors API Test!</h1>
 	    <p>This is a project to bring a mobile app for the AHL Bakersfield Condors to fruition.</p>
 	    <p>All scores, schedules, and news are entered manually.</p>
@@ -107,7 +109,7 @@
 							  <?php
 							  	$ht_result = mysqli_query( "SELECT name FROM Teams ORDER BY name ASC");
 							  	$ht_rows = mysqli_fetch_array($ht_result, MYSQLI_NUM);
-							  	foreach ($ht_row in $ht_rows) {
+							  	foreach ($ht_rows as $ht_row) {
 							  		echo "<option>". $ht_row[0] . "</option>";
 							  	}
 							  ?>
@@ -120,7 +122,7 @@
 							  <?php
 							  	$at_result = mysqli_query( "SELECT name FROM Teams ORDER BY name ASC");
 							  	$at_rows = mysqli_fetch_array($at_result, MYSQLI_NUM);
-							  	foreach ($at_row in $at_rows) {
+							  	foreach ($at_rows as $at_row) {
 							  		echo "<option>". $at_row[0] . "</option>";
 							  	}
 							  ?>
