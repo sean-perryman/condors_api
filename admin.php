@@ -81,7 +81,7 @@
 		    <section id="team">
 			    <!-- Teams Form -->
 				  <div class="row">
-				    <form method="post">
+				    <form method="post" enctype="multipart/form-data">
 						  <div class="form-group">
 						    <label for="teamCity">Team City</label>
 						    <input type="text" class="form-control" name="teamCity" id="teamCity" placeholder="E.g. Bakersfield">
