@@ -13,9 +13,8 @@
     <!-- CSS -->
     <link href="css/main.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="jquery.timepicker.css" />
-    
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.standalone.css" />
+    <link href="css/jquery.timepicker.css" rel="stylesheet" />
+    <link href="css/bootstrap-datepicker.standalone.css" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -100,11 +99,11 @@
 					  </div>
 					  <div class="form-group">
 					    <label for="gameDate">Game Date</label>
-					    <input type="date" id="gameDate">
+					    <input type="text" id="date gameDate">
 					  </div>
 					  <div class="form-group">
 					    <label for="gameTime">Game Time</label>
-					    <input type="time" id="gameTime">
+					    <input type="text" id="time gameTime">
 					  </div>
 					  <div class="form-group">
 					    <label for="homeScore">Home Score</label>
@@ -114,14 +113,6 @@
 					    <label for="awayScore">Away Score</label>
 					    <input type="number" id="awayScore" placeholder="0">
 					  </div>
-
-					  <!-- Date Picker Test -->
-					  <p id="datepairExample">
-					    <input type="text" class="date start" />
-					    <input type="text" class="time start" /> to
-					    <input type="text" class="time end" />
-					    <input type="text" class="date end" />
-						</p>
 
 					  <button type="submit" class="btn btn-default">Submit</button>
 					</form>
