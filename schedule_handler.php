@@ -28,7 +28,7 @@
 		} else die("Unable to pull away team id");
 
 		$insert_query = "INSERT INTO Schedule 
-										(homeTeam, awayTeam, gameDate, gameTime, homeScore, awayScore) VALUES 
+										(home, away, game_date, game_time, home_score, away_score) VALUES 
 										(" . $homeTeam . ", " . $awayTeam . ", " . $gameDate . ", " . $gameTime . ", " . $homeScore . ", " . $awayScore . ")";
 		
 		if ($result = mysqli_query($link, $insert_query)) echo "<div class=\"alert alert-success\" role=\"alert\">Success.</div>";
