@@ -67,8 +67,16 @@
 			   	if ($sched_result = mysqli_query( $link, $sched_query )) {
 				  	while($row = mysqli_fetch_assoc($sched_result)) {
 				  		echo "<tr>";
-				  		echo "	<td>" . $row['home_team'] . "</td>";
-				  		echo "	<td>" . $row['away_team'] . "</td>";
+				  		//Pull Home Team
+				  		$result = mysqli_query( $link, "SELECT city, name FROM Teams WHERE id='" . $row['home'] . ";" );
+					  	while ($subrow = mysqli_fetch_array($result)) {
+					  		echo "	<td>" . $subrow['city'] . " " . $subrow['name'] . "</td>";
+					  	}
+					  	//Pull Away Team
+				  		$result = mysqli_query( $link, "SELECT city, name FROM Teams WHERE id='" . $row['away'] . ";" );
+					  	while ($subrow = mysqli_fetch_array($result)) {
+					  		echo "	<td>" . $subrow['city'] . " " . $subrow['name'] . "</td>";
+					  	}
 				  		echo "	<td>" . date('m/d/Y', strtotime($row['game_date'])) . "</td>";
 				  		echo "	<td>" . date('h:i:s a', strtotime($row['game_time'])) . "</td>";
 				  		echo "	<td>" . $row['home_score'] . "</td>";
