@@ -75,9 +75,9 @@
 					    <select class="form-control" id="homeTeam" name="homeTeam">
 					    	<option>Click to select home team</option>
 							  <?php
-							  	$result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
+							  	$result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
 							  	while ($row = mysqli_fetch_assoc($result)) {
-							  		echo "<option value=" . $row['name'] . ">" . $row['city'] . " " . $row['name'] . "</option>";
+							  		echo "<option value='" . $row['name'] . "''>" . $row['city'] . " " . $row['name'] . "</option>";
 							  	}
 							  ?>
 					  	</select>
@@ -87,9 +87,9 @@
 					    <select class="form-control" id="awayTeam" name="awayTeam">
 					    	<option>Click to select away team</option>
 							  <?php
-							  	$result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
+							  	$result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
 							  	while ($row = mysqli_fetch_array($result)) {
-							  		echo "<option value=" . $row['name'] . ">" . $row['city'] . " " . $row['name'] . "</option>";
+							  		echo "<option value='" . $row['name'] . "''>" . $row['city'] . " " . $row['name'] . "</option>";
 							  	}
 							  ?>
 					  	</select>
