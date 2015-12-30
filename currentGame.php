@@ -7,7 +7,7 @@
 						ORDER BY game_date DESC
 						LIMIT 1";
 
-	$result = mysqli_query( $query, $link );
+	$result = mysqli_query( $link, $query );
 	$row = mysqli_fetch_array($result, MYSQLI_NUM);
 	mysqli_close($link);
 
