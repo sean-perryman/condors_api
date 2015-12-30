@@ -34,18 +34,54 @@
 		    <p>This is a project to bring a mobile app for the AHL Bakersfield Condors to fruition.</p>
 		    <p>All scores, schedules, and news are entered manually.</p>
 
-		    <?php 
+		    <a class="btn btn-default" href="teamLogos">Team Logos</a>
+		    <a class="btn btn-default" href="schedule">Schedule</a>
+		    <a class="btn btn-default" href="teamForm">Team Form</a>
+		    <a class="btn btn-default" href="scheduleForm">Schedule Form</a>
+		  </section>
+
+		  <section id="teamLogos">
+		  	<?php 
 		    	$logo_query = "SELECT * FROM Teams ORDER BY name ASC";
-			   	if ($header_result = mysqli_query( $link, $logo_query )) {
-				  	
-				  	while($row = mysqli_fetch_assoc($header_result)) {
+			   	if ($logo_result = mysqli_query( $link, $logo_query )) {
+				  	while($row = mysqli_fetch_assoc($logo_result)) {
 				  		echo "<img class='team_logos' src='" . $row['logo'] . "'' />";
 				  	}
 				  }
 		    ?>
+				<a class="btn btn-default" href="header">Top of Page</a>
 		  </section>
 
-	    <section id="team">
+		  <section id="schedule">
+		  	<table class="table table-striped">
+		  		<tr>
+		  			<td>Home Team</td>
+		  			<td>Away Team</td>
+		  			<td>Game Date</td>
+		  			<td>Game Time</td>
+		  			<td>Home Score</td>
+		  			<td>Away Score</td>
+		  		</tr>
+		  	<?php 
+		    	$sched_query = "SELECT * FROM Schedule ORDER BY game_date ASC";
+			   	if ($sched_result = mysqli_query( $link, $sched_query )) {
+				  	while($row = mysqli_fetch_assoc($sched_result)) {
+				  		echo "<tr>";
+				  		echo "	<td>" . $row['home_team'] . "</td>";
+				  		echo "	<td>" . $row['away_team'] . "</td>";
+				  		echo "	<td>" . date('m/d/Y', strtotime($row['game_date'])) . "</td>";
+				  		echo "	<td>" . date('h:i:s a', strtotime($row['game_time'])) . "</td>";
+				  		echo "	<td>" . $row['home_score'] . "</td>";
+				  		echo "	<td>" . $row['away_score'] . "</td>";
+				  		echo "</tr>";
+				  	}
+				  }
+		    ?>
+		  	</table>
+		  	<a class="btn btn-default" href="header">Top of Page</a>
+		  </section>
+
+	    <section id="teamForm">
 		    <!-- Teams Form -->
 			  <div class="row">
 			    <form method="post" enctype="multipart/form-data">
@@ -64,9 +100,10 @@
 					  <button type="submit" class="btn btn-default">Submit</button>
 					</form>
 				</div>
+				<a class="btn btn-default" href="header">Top of Page</a>
 			</section>
 
-			<section id="schedule">
+			<section id="scheduleForm">
 				<!-- Schedule Form-->
 				<div class="row">
 					<form method="post">
@@ -116,6 +153,7 @@
 					  <button type="submit" class="btn btn-default">Submit</button>
 					</form>
 				</div>
+				<a class="btn btn-default" href="header">Top of Page</a>
 			</section>
 
 			<!-- News Form -->
