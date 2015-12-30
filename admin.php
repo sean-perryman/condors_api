@@ -13,6 +13,10 @@
     <!-- CSS -->
     <link href="css/main.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="jquery.timepicker.css" />
+    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.standalone.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -126,13 +130,13 @@
 
 			<!-- News Form -->
 
-	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="js/bootstrap.min.js"></script>	
-
-	    <script type="text/javascript" src="datepair.js"></script>
-			<script type="text/javascript" src="jquery.datepair.js"></script>
+	    <script src="js/jquery.timepicker.js"></script>
+    	<script src="js/bootstrap-datepicker.js"></script>
+	    <script src="js/datepair.js"></script>
+			<script src="js/jquery.datepair.js"></script>
+			
 			<script>
 		    // initialize input widgets first
 		    $('#datepairExample .time').timepicker({
