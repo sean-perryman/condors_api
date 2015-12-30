@@ -13,6 +13,7 @@
 		$homeScore = mysqli_real_escape_string($link, $_POST['homeScore']);
 		$awayScore = mysqli_real_escape_string($link, $_POST['awayScore']);
 
+		//Query for home team ID
 		$home_query = "SELECT id FROM Teams WHERE name ='" . $homeTeam . "'";
 		if ($home_result = mysqli_query($link, $home_query)) {
 			while ($row = mysqli_fetch_assoc($home_result)) {
@@ -20,6 +21,7 @@
 			}
 		} else die("Unable to pull home team id");
 
+		//Query for away team ID
 		$away_query = "SELECT id FROM Teams WHERE name ='" . $awayTeam . "'";
 		if ($away_result = mysqli_query($link, $away_query)) {
 			while ($row = mysqli_fetch_assoc($away_result)) {
@@ -27,11 +29,12 @@
 			}
 		} else die("Unable to pull away team id");
 
-		echo("Home Team ID: " . $homeTeam . "<br />Away Team ID: " . $awayTeam);
+		//Convert game time to 24h format
+		$gameTime = date("H:i:s", strtotime($gameTime));
 
 		$insert_query = "INSERT INTO Schedule 
 										(home, away, game_date, game_time, home_score, away_score) VALUES 
-										('" . $homeTeam . "', '" . $awayTeam . "', '" . $gameDate . "', '" . TIME_FORMAT($gameTime, '%T') . "', '" . $homeScore . "', '" . $awayScore . "')";
+										('" . $homeTeam . "', '" . $awayTeam . "', '" . $gameDate . "', '" . $gameTime . "', '" . $homeScore . "', '" . $awayScore . "')";
 		
 		echo( "Insert Query: " . $insert_query);								
 
