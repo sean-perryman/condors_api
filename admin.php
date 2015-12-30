@@ -9,10 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- CSS -->
     <link href="css/main.css" rel="stylesheet">
-
     <link href="css/jquery.timepicker.css" rel="stylesheet" />
     <link href="css/bootstrap-datepicker.standalone.css" rel="stylesheet" />
 
@@ -75,24 +72,24 @@
 					<form method="post">
 						<div class="form-group">
 					    <label for="homeTeam">Home Team</label>
-					    <select class="form-control" id="homeTeam">
+					    <select class="form-control" id="homeTeam" name="homeTeam">
 					    	<option>Click to select home team</option>
 							  <?php
 							  	$result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
 							  	while ($row = mysqli_fetch_assoc($result)) {
-							  		echo "<option>". $row['name'] . "</option>";
+							  		echo "<option value=" . $row['name'] . ">" . $row['city'] . " " . $row['name'] . "</option>";
 							  	}
 							  ?>
 					  	</select>
 					  </div>
 					  <div class="form-group">
 					    <label for="awayTeam">Away Team</label>
-					    <select class="form-control" id="awayTeam">
+					    <select class="form-control" id="awayTeam" name="awayTeam">
 					    	<option>Click to select away team</option>
 							  <?php
 							  	$result = mysqli_query( $link, "SELECT name FROM Teams ORDER BY name ASC" );
 							  	while ($row = mysqli_fetch_array($result)) {
-							  		echo "<option>". $row['name'] . "</option>";
+							  		echo "<option value=" . $row['name'] . ">" . $row['city'] . " " . $row['name'] . "</option>";
 							  	}
 							  ?>
 					  	</select>
@@ -100,20 +97,20 @@
 					  <div id="dateTimePickers">
 						  <div class="form-group">
 						    <label for="gameDate">Game Date</label>
-						    <input type="text" class="date" id="gameDate">
+						    <input type="text" class="date" id="gameDate" name="gameDate">
 						  </div>
 						  <div class="form-group">
 						    <label for="gameTime">Game Time</label>
-						    <input type="text" class="time" id="gameTime">
+						    <input type="text" class="time" id="gameTime" name="gameTime">
 						  </div>
 						</div>
 					  <div class="form-group">
 					    <label for="homeScore">Home Score</label>
-					    <input type="number" id="homeScore" placeholder="0">
+					    <input type="number" id="homeScore" name="homeScore" placeholder="0">
 					  </div>
 					  <div class="form-group">
 					    <label for="awayScore">Away Score</label>
-					    <input type="number" id="awayScore" placeholder="0">
+					    <input type="number" id="awayScore" name="awayScore" placeholder="0">
 					  </div>
 
 					  <button type="submit" class="btn btn-default">Submit</button>
