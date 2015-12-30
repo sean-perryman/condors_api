@@ -31,7 +31,7 @@
 
 		$insert_query = "INSERT INTO Schedule 
 										(home, away, game_date, game_time, home_score, away_score) VALUES 
-										('" . $homeTeam . "', '" . $awayTeam . "', '" . $gameDate . "', '" . $gameTime . "', '" . $homeScore . "', '" . $awayScore . "')";
+										('" . $homeTeam . "', '" . $awayTeam . "', '" . $gameDate . "', '" . DATE_FORMAT($gameTime, '%T') . "', '" . $homeScore . "', '" . $awayScore . "')";
 		
 		echo( "Insert Query: " . $insert_query);								
 
