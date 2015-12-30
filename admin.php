@@ -34,10 +34,10 @@
 		    <p>This is a project to bring a mobile app for the AHL Bakersfield Condors to fruition.</p>
 		    <p>All scores, schedules, and news are entered manually.</p>
 
-		    <a class="btn btn-default" href="teamLogos">Team Logos</a>
-		    <a class="btn btn-default" href="schedule">Schedule</a>
-		    <a class="btn btn-default" href="teamForm">Team Form</a>
-		    <a class="btn btn-default" href="scheduleForm">Schedule Form</a>
+		    <a class="btn btn-default" href="#teamLogos">Team Logos</a>
+		    <a class="btn btn-default" href="#schedule">Schedule</a>
+		    <a class="btn btn-default" href="#teamForm">Team Form</a>
+		    <a class="btn btn-default" href="#scheduleForm">Schedule Form</a>
 		  </section>
 
 		  <section id="teamLogos">
@@ -49,7 +49,7 @@
 				  	}
 				  }
 		    ?>
-				<a class="btn btn-default" href="header">Top of Page</a>
+				<a class="btn btn-default" href="#header">Top of Page</a>
 		  </section>
 
 		  <section id="schedule">
@@ -68,12 +68,12 @@
 				  	while($row = mysqli_fetch_assoc($sched_result)) {
 				  		echo "<tr>";
 				  		//Pull Home Team
-				  		$result = mysqli_query( $link, "SELECT city, name FROM Teams WHERE id='" . $row['home'] . ";" );
+				  		$result = mysqli_query( $link, "SELECT city, name FROM Teams WHERE id='" . $row['home'] . "'" );
 					  	while ($subrow = mysqli_fetch_array($result)) {
 					  		echo "	<td>" . $subrow['city'] . " " . $subrow['name'] . "</td>";
 					  	}
 					  	//Pull Away Team
-				  		$result = mysqli_query( $link, "SELECT city, name FROM Teams WHERE id='" . $row['away'] . ";" );
+				  		$result = mysqli_query( $link, "SELECT city, name FROM Teams WHERE id='" . $row['away'] . "'" );
 					  	while ($subrow = mysqli_fetch_array($result)) {
 					  		echo "	<td>" . $subrow['city'] . " " . $subrow['name'] . "</td>";
 					  	}
@@ -86,7 +86,7 @@
 				  }
 		    ?>
 		  	</table>
-		  	<a class="btn btn-default" href="header">Top of Page</a>
+		  	<a class="btn btn-default" href="#header">Top of Page</a>
 		  </section>
 
 	    <section id="teamForm">
@@ -108,7 +108,7 @@
 					  <button type="submit" class="btn btn-default">Submit</button>
 					</form>
 				</div>
-				<a class="btn btn-default" href="header">Top of Page</a>
+				<a class="btn btn-default" href="#header">Top of Page</a>
 			</section>
 
 			<section id="scheduleForm">
@@ -161,7 +161,7 @@
 					  <button type="submit" class="btn btn-default">Submit</button>
 					</form>
 				</div>
-				<a class="btn btn-default" href="header">Top of Page</a>
+				<a class="btn btn-default" href="#header">Top of Page</a>
 			</section>
 
 			<!-- News Form -->
