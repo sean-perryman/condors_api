@@ -73,7 +73,7 @@
 						<div class="form-group">
 					    <label for="homeTeam">Home Team</label>
 					    <select class="form-control" id="homeTeam" name="homeTeam">
-					    	<option>Click to select home team</option>
+					    	<option value="none">Click to select home team</option>
 							  <?php
 							  	$result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
 							  	while ($row = mysqli_fetch_assoc($result)) {
@@ -85,7 +85,7 @@
 					  <div class="form-group">
 					    <label for="awayTeam">Away Team</label>
 					    <select class="form-control" id="awayTeam" name="awayTeam">
-					    	<option>Click to select away team</option>
+					    	<option value="none">Click to select away team</option>
 							  <?php
 							  	$result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
 							  	while ($row = mysqli_fetch_array($result)) {

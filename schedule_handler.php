@@ -6,6 +6,7 @@
 			isset($_POST['homeScore']) &&
 			isset($_POST['awayScore']))
 	{
+		if ($_POST['homeTeam'] == "none" || $_POST['awayTeam'] == "none") die("You much chose both home and away teams.");
 		$homeTeam = mysqli_real_escape_string($link, $_POST['homeTeam']);
 		$awayTeam = mysqli_real_escape_string($link, $_POST['awayTeam']);
 		$gameDate = mysqli_real_escape_string($link, $_POST['gameDate']);
@@ -36,11 +37,9 @@
 										(home, away, game_date, game_time, home_score, away_score) VALUES 
 										('" . $homeTeam . "', '" . $awayTeam . "', '" . $gameDate . "', '" . $gameTime . "', '" . $homeScore . "', '" . $awayScore . "')";
 		
-		echo( "Insert Query: " . $insert_query);								
+		//echo( "Insert Query: " . $insert_query);								
 
-		/*
 		if ($result = mysqli_query($link, $insert_query)) echo "<div class=\"alert alert-success\" role=\"alert\">Success.</div>";
 		else echo "<div class=\"alert alert-danger\" role=\"alert\">Failure.</div>";
-		*/
 	}
 ?>
