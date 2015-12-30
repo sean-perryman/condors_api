@@ -100,11 +100,11 @@
 					  <div id="dateTimePickers">
 						  <div class="form-group">
 						    <label for="gameDate">Game Date</label>
-						    <input type="text" id="date gameDate">
+						    <input type="text" class="date" id="gameDate">
 						  </div>
 						  <div class="form-group">
 						    <label for="gameTime">Game Time</label>
-						    <input type="text" id="time gameTime">
+						    <input type="text" class="time" id="gameTime">
 						  </div>
 						</div>
 					  <div class="form-group">
