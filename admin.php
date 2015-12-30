@@ -97,14 +97,16 @@
 							  ?>
 					  	</select>
 					  </div>
-					  <div class="form-group">
-					    <label for="gameDate">Game Date</label>
-					    <input type="text" id="date gameDate">
-					  </div>
-					  <div class="form-group">
-					    <label for="gameTime">Game Time</label>
-					    <input type="text" id="time gameTime">
-					  </div>
+					  <div id="dateTimePickers">
+						  <div class="form-group">
+						    <label for="gameDate">Game Date</label>
+						    <input type="text" id="date gameDate">
+						  </div>
+						  <div class="form-group">
+						    <label for="gameTime">Game Time</label>
+						    <input type="text" id="time gameTime">
+						  </div>
+						</div>
 					  <div class="form-group">
 					    <label for="homeScore">Home Score</label>
 					    <input type="number" id="homeScore" placeholder="0">
@@ -130,18 +132,18 @@
 			
 			<script>
 		    // initialize input widgets first
-		    $('#datepairExample .time').timepicker({
+		    $('#dateTimePickers .time').timepicker({
         	'showDuration': true,
 	        'timeFormat': 'g:ia'
 		    });
 
-		    $('#datepairExample .date').datepicker({
+		    $('#dateTimePickers .date').datepicker({
         	'format': 'yyyy-m-d',
 	        'autoclose': true
 		    });
 
 		    // initialize datepair
-		    $('#datepairExample').datepair();
+		    $('#dateTimePickers').datepair();
 			</script>
 	  </div>
   </body>
