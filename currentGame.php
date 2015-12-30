@@ -12,5 +12,5 @@
 	mysqli_close($link);
 
 	if (isset($row[0]))	echo json_encode($row[0]);
-	else return "No results.";
+	else echo "No results.";
 ?>
