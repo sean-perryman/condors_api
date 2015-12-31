@@ -2,7 +2,7 @@
 	require_once('dblink.php');
 	$schedule = array();
 
-	$query = "SELECT s.game_date, h.name, a.name 
+	$query = "SELECT s.game_date, s.game_time, s.home_score, s.away_score, h.name, a.name 
 						FROM Schedule AS s 
 						INNER JOIN Teams h ON s.home=h.id 
 						INNER JOIN Teams a ON s.away=a.id 
