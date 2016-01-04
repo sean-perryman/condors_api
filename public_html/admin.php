@@ -24,9 +24,9 @@
   	<div class="container">
 
 <?php
-	require('dblink.php');
-	require('team_handler.php');
-	require('schedule_handler.php');
+	require('dblink.php'); //Database Connection
+	require('team_handler.php'); //Team Addition Handler
+	require('schedule_handler.php'); //Schedule Addition Handler
 ?>
 		  <section id="header">  
 		    <h1>Condors API Test!</h1>
