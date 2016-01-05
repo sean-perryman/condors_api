@@ -16,8 +16,6 @@
 		$i++;
 	}
 
-
-
 	print_r(json_encode($schedule));
 	mysqli_close($link);
 ?>
