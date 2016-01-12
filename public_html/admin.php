@@ -89,81 +89,84 @@
 		  	<a class="btn btn-default" href="#header">Top of Page</a>
 		  </section>
 
-	    <section id="teamForm">
-		    <!-- Teams Form -->
-			  <div class="row">
-			    <form method="post" enctype="multipart/form-data">
-					  <div class="form-group">
-					    <label for="teamCity">Team City</label>
-					    <input type="text" class="form-control" name="teamCity" id="teamCity" placeholder="E.g. Bakersfield">
-					  </div>
-					  <div class="form-group">
-					    <label for="teamName">Team Name</label>
-					    <input type="text" class="form-control" name="teamName" id="teamName" placeholder="E.g. Condors">
-					  </div>
-					  <div class="form-group">
-					    <label for="teamLogoFile">Team Logo</label>
-					    <input type="file" name="teamLogoFile" id="teamLogoFile">
-					  </div>
-					  <button type="submit" class="btn btn-default">Submit</button>
-					</form>
-				</div>
-				<a class="btn btn-default" href="#header">Top of Page</a>
-			</section>
-
-			<section id="scheduleForm">
-				<!-- Schedule Form-->
-				<div class="row">
-					<form method="post">
-						<div class="form-group">
-					    <label for="homeTeam">Home Team</label>
-					    <select class="form-control" id="homeTeam" name="homeTeam">
-					    	<option value="none">Click to select home team</option>
-							  <?php
-							  	$result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
-							  	while ($row = mysqli_fetch_assoc($result)) {
-							  		echo "<option value='" . $row['name'] . "''>" . $row['city'] . " " . $row['name'] . "</option>";
-							  	}
-							  ?>
-					  	</select>
-					  </div>
-					  <div class="form-group">
-					    <label for="awayTeam">Away Team</label>
-					    <select class="form-control" id="awayTeam" name="awayTeam">
-					    	<option value="none">Click to select away team</option>
-							  <?php
-							  	$result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
-							  	while ($row = mysqli_fetch_array($result)) {
-							  		echo "<option value='" . $row['name'] . "''>" . $row['city'] . " " . $row['name'] . "</option>";
-							  	}
-							  ?>
-					  	</select>
-					  </div>
-					  <div id="dateTimePickers">
+		  <?php if ($_GET['admin'] == "true") { ?>
+		    <section id="teamForm">
+			    <!-- Teams Form -->
+				  <div class="row">
+				    <form method="post" enctype="multipart/form-data">
 						  <div class="form-group">
-						    <label for="gameDate">Game Date</label>
-						    <input type="text" class="date" id="gameDate" name="gameDate">
+						    <label for="teamCity">Team City</label>
+						    <input type="text" class="form-control" name="teamCity" id="teamCity" placeholder="E.g. Bakersfield">
 						  </div>
 						  <div class="form-group">
-						    <label for="gameTime">Game Time</label>
-						    <input type="text" class="time" id="gameTime" name="gameTime">
+						    <label for="teamName">Team Name</label>
+						    <input type="text" class="form-control" name="teamName" id="teamName" placeholder="E.g. Condors">
 						  </div>
-						</div>
-					  <div class="form-group">
-					    <label for="homeScore">Home Score</label>
-					    <input type="number" id="homeScore" name="homeScore" placeholder="0">
-					  </div>
-					  <div class="form-group">
-					    <label for="awayScore">Away Score</label>
-					    <input type="number" id="awayScore" name="awayScore" placeholder="0">
-					  </div>
+						  <div class="form-group">
+						    <label for="teamLogoFile">Team Logo</label>
+						    <input type="file" name="teamLogoFile" id="teamLogoFile">
+						  </div>
+						  <button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					</div>
+					<a class="btn btn-default" href="#header">Top of Page</a>
+				</section>
+			<?php } ?>
 
-					  <button type="submit" class="btn btn-default">Submit</button>
-					</form>
-				</div>
-				<a class="btn btn-default" href="#header">Top of Page</a>
-			</section>
+			<?php if ($_GET['admin'] == "true") { ?>
+				<section id="scheduleForm">
+					<!-- Schedule Form-->
+					<div class="row">
+						<form method="post">
+							<div class="form-group">
+						    <label for="homeTeam">Home Team</label>
+						    <select class="form-control" id="homeTeam" name="homeTeam">
+						    	<option value="none">Click to select home team</option>
+								  <?php
+								  	$result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
+								  	while ($row = mysqli_fetch_assoc($result)) {
+								  		echo "<option value='" . $row['name'] . "''>" . $row['city'] . " " . $row['name'] . "</option>";
+								  	}
+								  ?>
+						  	</select>
+						  </div>
+						  <div class="form-group">
+						    <label for="awayTeam">Away Team</label>
+						    <select class="form-control" id="awayTeam" name="awayTeam">
+						    	<option value="none">Click to select away team</option>
+								  <?php
+								  	$result = mysqli_query( $link, "SELECT * FROM Teams ORDER BY name ASC" );
+								  	while ($row = mysqli_fetch_array($result)) {
+								  		echo "<option value='" . $row['name'] . "''>" . $row['city'] . " " . $row['name'] . "</option>";
+								  	}
+								  ?>
+						  	</select>
+						  </div>
+						  <div id="dateTimePickers">
+							  <div class="form-group">
+							    <label for="gameDate">Game Date</label>
+							    <input type="text" class="date" id="gameDate" name="gameDate">
+							  </div>
+							  <div class="form-group">
+							    <label for="gameTime">Game Time</label>
+							    <input type="text" class="time" id="gameTime" name="gameTime">
+							  </div>
+							</div>
+						  <div class="form-group">
+						    <label for="homeScore">Home Score</label>
+						    <input type="number" id="homeScore" name="homeScore" placeholder="0">
+						  </div>
+						  <div class="form-group">
+						    <label for="awayScore">Away Score</label>
+						    <input type="number" id="awayScore" name="awayScore" placeholder="0">
+						  </div>
 
+						  <button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					</div>
+					<a class="btn btn-default" href="#header">Top of Page</a>
+				</section>
+			<?php } ?>
 			<!-- News Form -->
 
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
